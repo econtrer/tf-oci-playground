@@ -5,8 +5,8 @@ variable "user_ocid" {
   default = ""
 }
 
-variable "fingerprint" {
-}
+# variable "fingerprint" {
+# }
 
 variable "private_key_path" {
   default = ""
