@@ -21,3 +21,7 @@ variable "compartment_ocid" {
 
 variable "region" {
 }
+
+variable "compartment_name" {
+  default = "hytale"
+}
