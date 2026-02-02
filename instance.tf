@@ -9,6 +9,11 @@ data "oci_core_images" "test_images" {
   shape = var.instance_shape
 }
 
+data "oci_identity_availability_domain" "ad" {
+  compartment_id = var.tenancy_ocid
+  ad_number      = 1
+}
+
 resource "oci_core_instance" "free_instance0" {
   availability_domain = data.oci_identity_availability_domain.ad.name
   compartment_id      = oci_identity_compartment.tf-compartment.id
@@ -33,7 +38,7 @@ resource "oci_core_instance" "free_instance0" {
   }
 
   metadata = {
-    ssh_authorized_keys = (var.ssh_public_key != "") ? var.ssh_public_key : tls_private_key.compute_ssh_key.public_key_openssh
+    ssh_authorized_keys = var.ssh_public_key
   }
 }
 
