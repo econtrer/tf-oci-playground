@@ -38,9 +38,6 @@ variable "instance_shape_config_memory_in_gbs" {
   default = 24 # Max memory for always free instance
 }
 
-variable "ssh_public_key" {
-}
-
 # Instance image details
 variable "image_operating_system" {
   default = "Oracle Linux"
