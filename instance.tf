@@ -35,6 +35,7 @@ resource "oci_core_instance" "free_instance0" {
   source_details {
     source_type = "image"
     source_id   = lookup(data.oci_core_images.test_images.images[0], "id")
+    boot_volume_size_in_gbs = 150
   }
 
   metadata = {
