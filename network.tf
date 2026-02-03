@@ -83,4 +83,13 @@ resource "oci_core_security_list" "test_security_list" {
       min = "80"
     }
   }
+
+  ingress_security_rules {
+    protocol = "17" # UDP
+    source   = "0.0.0.0/0"
+    udp_options {
+      max = "6502"
+      min = "6502"
+    }
+  }
 }
